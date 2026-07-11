@@ -15,7 +15,7 @@ export async function POST(request: NextRequest){
 
         await connectToMongoDb();
 
-        const existingUser = await User.find({email});
+        const existingUser = await User.findOne({email});
         if(existingUser){
             return NextResponse.json({
                 error: "User already registered",
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest){
             {status: 201}
         );
     }catch(error){
-        console.log("Registration Error: ", error);
+        console.error("Registration Error: ", error);
         return NextResponse.json(
             {error: "Failed to register user"},
             {status: 500},
