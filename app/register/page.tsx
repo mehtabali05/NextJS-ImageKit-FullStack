@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -12,6 +13,7 @@ function RegisterPage() {
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        // Loading, error, debouce we can handle here.
         e.preventDefault();
 
         try {
@@ -43,9 +45,38 @@ function RegisterPage() {
         }
     }
 
-    return <div>
-        Register page
-    </div>
+    return (
+        <div>
+            <h1>Regiter Form</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type= "email"    
+                    placeholder="Enter Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+
+                <input
+                    type= "password"    
+                    placeholder="Enter Password"
+                    value={password}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+
+                <input
+                    type= "password"    
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+
+                <button type="submit" >Register</button>
+            </form>
+            <div>
+                <p>Already have an account ? <Link href={"/login"}>Log in</Link></p>
+            </div>
+        </div>
+    );
 }
 
 export default RegisterPage;
