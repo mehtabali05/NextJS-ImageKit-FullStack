@@ -1,3 +1,5 @@
+// 'use client'
+
 import { IVideo } from "@/app/models/Video";
 
 export type VideoFormdata = Omit<IVideo, "_id">
