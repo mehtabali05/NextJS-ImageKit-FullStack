@@ -44,7 +44,7 @@ const FileUpload = (
     }
 
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?[0];
+        const file = e.target.files?.[0];
 
         if(!file || !validateFile) return;
 
@@ -54,7 +54,7 @@ const FileUpload = (
 
         try {
             const authRes = await fetch("/api/auth/imagekit-auth");
-            const auth = authRes.json();
+            const auth = await authRes.json();
             console.log("Auth: ",auth); 
 
             const res = await upload({      
