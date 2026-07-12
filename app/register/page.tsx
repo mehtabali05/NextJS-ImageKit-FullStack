@@ -46,34 +46,46 @@ function RegisterPage() {
     }
 
     return (
-        <div>
-            <h1>Regiter Form</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type= "email"    
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+        <div className="flex justify-center items-center min-h-screen">
+            <div className="flex flex-col border p-4 rounded-lg w-[300px] h-[400] items-center justify-evenly">
+                <h1 className="font-bold text-3xl">Regiter Form</h1>
+                <form onSubmit={handleSubmit}
+                    className="flex flex-col gap-4"
+                >
+                    <input
+                        type= "email"    
+                        placeholder="Enter Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border p-2 rounded-lg"
+                    />
 
-                <input
-                    type= "password"    
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                    <input
+                        type= "password"    
+                        placeholder="Enter Password"
+                        value={password}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border p-2 rounded-lg"
+                    />
 
-                <input
-                    type= "password"    
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                    <input
+                        type= "password"    
+                        placeholder="Confirm Password"
+                        value={confirmPassword}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border p-2 rounded-lg"
+                    />
 
-                <button type="submit" >Register</button>
-            </form>
-            <div>
-                <p>Already have an account ? <Link href={"/login"}>Log in</Link></p>
+                    <button type="submit" 
+                        className="border p-2 rounded-lg"
+                    >Register</button>
+                </form>
+                <div>
+                    <p>Already have an account ? 
+                        <Link href={"/login"}
+                            className="underline text-blue-500 pl-2"
+                        >Log in</Link></p>
+                </div>
             </div>
         </div>
     );

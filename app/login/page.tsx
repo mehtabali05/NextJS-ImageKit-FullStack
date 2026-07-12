@@ -32,28 +32,31 @@ function LoginPage() {
         }
     }
     return (
-        <div className="flex flex-col gap-4 w-[300px] h-[400px] border rounded-lg p-4 items-center justify-evenly">
-            <h1 className="font-bold text-3xl">Login page</h1>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <input 
-                    type="email"
-                    value={email}
-                    placeholder="Enter email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="border p-2 rounded-lg"
-                />
+        <div className="flex items-center justify-center min-h-screen">
+            <div className="flex flex-col gap-4 w-[300px] h-[400px] border rounded-lg p-4 items-center justify-evenly">
+                <h1 className="font-bold text-3xl">Login page</h1>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <input 
+                        type="email"
+                        value={email}
+                        placeholder="Enter email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="border p-2 rounded-lg"
+                    />
 
-                <input 
-                    type="password"
-                    value={password}
-                    placeholder="Enter Password"
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="border p-2 rounded-lg"
-                />
-                <button type="submit" className="border p-2 rounded-lg"> Login</button>
-            </form>
-            <div>
-                <p>Don't have an account ? <Link href={"/register"}>Register</Link></p>
+                    <input 
+                        type="password"
+                        value={password}
+
+                        placeholder="Enter Password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="border p-2 rounded-lg"
+                    />
+                    <button type="submit" className="border p-2 rounded-lg"> Login</button>
+                </form>
+                <div>
+                    <p>Don't have an account ? <Link href="/register" className="underline text-blue-500" >Register</Link></p>
+                </div>
             </div>
         </div>
     );
